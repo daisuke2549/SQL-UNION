@@ -18,12 +18,17 @@ create table UNION2(
 
 INSERT INTO UNION2 VALUES (3,65);
 INSERT INTO UNION2 VALUES (2,45);
+INSERT INTO UNION2 VALUES (2,45);
 INSERT INTO UNION2 VALUES (5,85);
 
 -- select DISTINCT * from UNION1
 -- ←DISTINCTを使うと重複しているものを除くことが可能
 
-select * from UNION1 where stock between 69 and 97
+update UNION1 set stock = 88 where id = 6;
+
+select * from UNION1
+UNION 
+select * from UNION2
 
 
 
