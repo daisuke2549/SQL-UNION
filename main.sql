@@ -26,9 +26,9 @@ INSERT INTO UNION2 VALUES (5,85);
 
 update UNION1 set stock = 88 where id = 6;
 
-select * from UNION1
-UNION 
-select * from UNION2
+-- select * from UNION1
+-- UNION 
+-- select * from UNION2
 
 
 
@@ -136,3 +136,18 @@ select * from UNION2
 
 
 
+
+
+
+create table score (
+  id INT NOT NULL UNIQUE,
+  stock INT default 76
+);
+
+INSERT INTO score VALUES (1,56);
+INSERT INTO score(id) VALUES(2);
+INSERT INTO score(id) VALUES(3);
+INSERT INTO score VALUES(4,88);
+
+
+select * from score 
