@@ -4,7 +4,9 @@ create table UNION1(
 );
 
 INSERT INTO UNION1 VALUES (1,25);
+INSERT INTO UNION1 VALUES(7,95);
 INSERT INTO UNION1 VALUES (2,45);
+INSERT INTO UNION1 VALUES (5,85);
 
 create table UNION2(
   id INT NOT NULL,
@@ -25,13 +27,19 @@ INSERT INTO UNION2 VALUES (5,85);
 -- select id, stock from UNION2
 
 
-select id, stock from UNION1
-INTERSECT
-select id, stock from UNION2
+-- select id, stock from UNION1
+-- INTERSECT
+-- select id, stock from UNION2
 -- ⇦INTERSECT は かつの意味
 
 
+-- select id, stock from UNION1
+--  EXCEPT
+-- select id, stock from UNION2
+-- ⇦差集合
 
+
+select * from UNION1
 
 -- CREATE TABLE name_age_list(
 --     id INTEGER PRIMARY KEY AUTOINCREMENT, 
