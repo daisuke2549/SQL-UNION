@@ -4,7 +4,9 @@ create table UNION1(
 );
 
 INSERT INTO UNION1 VALUES (1,25);
+INSERT INTO UNION1 VALUES (1,25);
 INSERT INTO UNION1 VALUES(7,95);
+INSERT INTO UNION1 VALUES(6,65);
 INSERT INTO UNION1 VALUES (2,45);
 INSERT INTO UNION1 VALUES (5,85);
 
@@ -17,6 +19,13 @@ create table UNION2(
 INSERT INTO UNION2 VALUES (3,65);
 INSERT INTO UNION2 VALUES (2,45);
 INSERT INTO UNION2 VALUES (5,85);
+
+-- select DISTINCT * from UNION1
+-- ←DISTINCTを使うと重複しているものを除くことが可能
+
+select * from UNION1 where stock between 69 and 97
+
+
 
 -- select id, stock from UNION1
 -- UNION ALL
@@ -38,8 +47,6 @@ INSERT INTO UNION2 VALUES (5,85);
 -- select id, stock from UNION2
 -- ⇦差集合
 
-
-select * from UNION1
 
 -- CREATE TABLE name_age_list(
 --     id INTEGER PRIMARY KEY AUTOINCREMENT, 
