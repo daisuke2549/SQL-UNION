@@ -140,7 +140,7 @@ update UNION1 set stock = 88 where id = 6;
 
 
 create table score (
-  id INT NOT NULL UNIQUE,
+  id INT UNIQUE,
   stock INT default 76
 );
 
@@ -148,6 +148,17 @@ INSERT INTO score VALUES (1,56);
 INSERT INTO score(id) VALUES(2);
 INSERT INTO score(id) VALUES(3);
 INSERT INTO score VALUES(4,88);
+INSERT INTO score(stock) VALUES(99);
 
 
-select * from score 
+create table test(
+  id INT UNIQUE NOT NULL,
+  phone INT
+);
+INSERT INTO test VALUES (1,01012341234);
+INSERT INTO test VALUES (2,03012341234);
+INSERT INTO test VALUES (3,(01012341234));
+INSERT INTO test VALUES (4,NULL);
+INSERT INTO test VALUES (5,03012341234);
+
+select * from test where phone NOT LIKE '%010%'
