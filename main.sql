@@ -163,5 +163,6 @@ INSERT INTO test VALUES (5,03012341234);
 INSERT INTO test VALUES (6,04012341239);
 INSERT INTO test VALUES (7,04012341237);
 
-select * from test where phone LIKE '%39%'
+-- select * from test where phone LIKE '%39%'
 
+select * from test where id between 1 and 5
