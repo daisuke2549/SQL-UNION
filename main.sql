@@ -163,8 +163,24 @@ INSERT INTO test VALUES (5,03012341234);
 INSERT INTO test VALUES (6,04012341239);
 INSERT INTO test VALUES (7,04012341237);
 
--- select * from test where phone LIKE '%39%'
+CREATE TABLE STUDENT (
+  学生番号 CHAR(5) PRIMARY KEY,
+  学生名 CHAR(16),
+  CHECK(学生番号 LIkE 'A%')
+);
 
-select * from test where id between 1 and 5
+-- CHECK制約 = データを追加した時の値が指定した条件を満たしているかをチェック
+
+
+INSERT INTO STUDENT(学生番号, 学生名) VALUES('A1001','鈴木');
+INSERT INTO STUDENT(学生番号, 学生名) VALUES('A1021','伊藤');
+
+INSERT INTO STUDENT(学生番号, 学生名) VALUES('K1021','伊藤');
+
+
+select * from STUDENT
+
+
+
 
 
