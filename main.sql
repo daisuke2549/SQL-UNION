@@ -175,12 +175,49 @@ CREATE TABLE STUDENT (
 INSERT INTO STUDENT(学生番号, 学生名) VALUES('A1001','鈴木');
 INSERT INTO STUDENT(学生番号, 学生名) VALUES('A1021','伊藤');
 
-INSERT INTO STUDENT(学生番号, 学生名) VALUES('K1021','伊藤');
+INSERT INTO STUDENT(学生番号, 学生名) VALUES('A1031','伊藤');
 
 
-select * from STUDENT
+-- select * from STUDENT
+
+
+-- GROUP BYの使い方
 
 
 
+
+create table test_table(
+  商品分類 CHAR(16) ,
+  金額 INT
+);
+
+INSERT INTO test_table(商品分類,金額) VALUES (
+  'シャツ','10000'
+);
+INSERT INTO test_table(商品分類,金額) VALUES (
+  'パンツ','2000'
+);
+INSERT INTO test_table(商品分類,金額) VALUES (
+  'パンツ','3000'
+);
+
+INSERT INTO test_table(商品分類,金額) VALUES (
+  'ズボン','4500'
+);
+
+INSERT INTO test_table(商品分類,金額) VALUES (
+  'シャツ','4500'
+);
+INSERT INTO test_table(商品分類,金額) VALUES (
+  'ズボン','7500'
+);
+
+INSERT INTO test_table(商品分類,金額) VALUES(
+  'シャツ', '2000'
+);
+
+
+select 商品分類, min(金額) FROM test_table
+GROUP BY 商品分類 ;
 
 
