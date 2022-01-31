@@ -217,8 +217,56 @@ INSERT INTO test_table(商品分類,金額) VALUES(
 );
 
 
-select 商品分類, sum(金額) FROM test_table
-GROUP BY 商品分類 
-HAVING sum(金額) <= 7000;
+-- select 商品分類, sum(金額) FROM test_table
+-- GROUP BY 商品分類 
+-- HAVING sum(金額) <= 7000;
 
 
+-- select * from test_table ORDER BY 
+-- 金額 ASC
+
+
+create table MATH(
+  氏名 CHAR(16),
+  数学 INT NOT NULL
+);
+
+INSERT INTO MATH(氏名,数学) VALUES(
+  '鈴木', '1'
+);
+INSERT INTO MATH(氏名,数学) VALUES(
+  '佐藤', '2'
+);
+INSERT INTO MATH(氏名,数学) VALUES(
+  '伊藤', '3'
+);
+INSERT INTO MATH(氏名,数学) VALUES(
+  '佐々木', '4'
+);
+
+
+create table ENGLISH(
+  氏名 CHAR(16),
+  英語 INT NOT NULL
+);
+
+INSERT INTO ENGLISH(氏名,英語) VALUES(
+  '鈴木', '5'
+);
+INSERT INTO ENGLISH(氏名,英語) VALUES(
+  '佐藤', '6'
+);
+INSERT INTO ENGLISH(氏名,英語) VALUES(
+  '伊藤', '7'
+);
+
+INSERT INTO ENGLISH(氏名,英語) VALUES(
+  '佐々木', '8'
+);
+
+SELECT *
+FROM MATH 
+INNER JOIN
+ENGLISH 
+ON 
+MATH.氏名 = ENGLISH.氏名;
