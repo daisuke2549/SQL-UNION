@@ -217,7 +217,8 @@ INSERT INTO test_table(商品分類,金額) VALUES(
 );
 
 
-select 商品分類, min(金額) FROM test_table
-GROUP BY 商品分類 ;
+select 商品分類, sum(金額) FROM test_table
+GROUP BY 商品分類 
+HAVING sum(金額) <= 7000;
 
 
