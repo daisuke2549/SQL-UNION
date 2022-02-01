@@ -264,12 +264,12 @@ INSERT INTO ENGLISH(氏名,英語) VALUES(
   '佐々木', '8'
 );
 
--- SELECT *
--- FROM MATH 
--- INNER JOIN
--- ENGLISH 
--- ON 
--- MATH.氏名 = ENGLISH.氏名;
+SELECT *
+FROM MATH 
+INNER JOIN
+ENGLISH 
+ON 
+MATH.氏名 = ENGLISH.氏名;
 
 
 CREATE table 都道府県(
@@ -286,8 +286,18 @@ INSERT INTO 都道府県(id,地名) VALUES(
 INSERT INTO 都道府県(id,地名) VALUES(
   '3', '山形県酒田市'
 );
+INSERT INTO 都道府県(id,地名) VALUES(
+  '4', '秋田県'
+);
+INSERT INTO 都道府県(id,地名) VALUES(
+  '5', '高知県'
+);
+INSERT INTO 都道府県(id,地名) VALUES(
+  '6', '京都府'
+);
 
-SELECT * from 都道府県  WHERE 地名 LIKE '%都';
+SELECT * from 都道府県  WHERE 地名 LIKE '%県%';
 
 
-select 地名, LENGTH(地名) 文字数  from 都道府県;
+
+
