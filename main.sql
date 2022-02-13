@@ -43,4 +43,33 @@ insert into dept values(1, 'Sales');
 insert into dept values(2, 'Manager');
 insert into dept values(3, 'engineer');
 
-select * from staff inner join dept on staff.deptid = dept.id;
+-- select * from staff inner join dept on staff.deptid = dept.id;
+
+
+
+CREATE TABLE cats(
+  id int NOT NULL UNIQUE,
+  name varchar(255)
+);
+
+insert into cats values(1, 'Goro');
+insert into cats values(2, 'Jiro');
+insert into cats values(3, 'Daigoro');
+insert into cats values(4, 'test');
+
+
+-- select * from cats;
+
+CREATE TABLE prefecture(
+  id int NOT NULL,
+  location varchar(255)
+);
+
+insert into prefecture values(1, 'Aomori');
+insert into prefecture values(2, 'Miyagi');
+insert into prefecture values(3, 'Shizuoka');
+insert into prefecture values(4, 'Yamanashi');
+
+select * from cats 
+INNER JOIN prefecture
+ON cats.id = prefecture.id;
