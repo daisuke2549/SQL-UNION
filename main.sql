@@ -1,32 +1,25 @@
-create table UNION1(
-  id INT,
-  stock INT
+CREATE TABLE employees(
+  NO int NOT NULL, 
+  last_name varchar(255), 
+  first_name varchar(255), 
+  PRIMARY KEY (NO)
 );
 
-INSERT INTO UNION1 VALUES (1,25);
-INSERT INTO UNION1 VALUES (1,25);
-INSERT INTO UNION1 VALUES(7,95);
-INSERT INTO UNION1 VALUES(6,65);
-INSERT INTO UNION1 VALUES (2,45);
-INSERT INTO UNION1 VALUES (5,85);
+INSERT INTO employees VALUES('1','鈴木','太郎');
+INSERT INTO employees VALUES('2','佐藤','一郎');
+INSERT INTO employees VALUES('3','田中','大輔');
 
-create table UNION2(
-  id INT NOT NULL,
-  stock INT
+
+CREATE TABLE departments(
+ 　 NO int NOT NULL,
+  department_name varchar(255), 
+  PRIMARY KEY (department_name)
 );
 
-
-INSERT INTO UNION2 VALUES (3,65);
-INSERT INTO UNION2 VALUES (2,45);
-INSERT INTO UNION2 VALUES (2,45);
-INSERT INTO UNION2 VALUES (5,85);
-
--- select DISTINCT * from UNION1
--- ←DISTINCTを使うと重複しているものを除くことが可能
-
-update UNION1 set stock = 88 where id = 6;
-
-select * from UNION1
-UNION ALL
-select * from UNION2
-
+SELECT
+  *
+FROM
+  employees
+INNER JOIN
+  departments 
+ON employees.NO = departments.NO; 
