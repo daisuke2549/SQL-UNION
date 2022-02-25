@@ -4,6 +4,7 @@ CREATE TABLE employees (
   last_name varchar(255), 
   PRIMARY KEY (no),
   check(department_no LIKE 'C%')
+  check(no between 1 and 10)
 );
  
 -- テストデータ
@@ -22,8 +23,8 @@ CREATE TABLE sample1_departments (
 -- テストデータ
 INSERT INTO sample1_departments VALUES('C0001', '営業部');
 INSERT INTO sample1_departments VALUES('C0002', '総務部');
-INSERT INTO sample1_departments VALUES('C0003', '法務');
-
+INSERT INTO sample1_departments VALUES('C0003', '法務部');
+INSERT INTO sample1_departments VALUES('C0004', '人事部');
 
 SELECT * FROM 
   employees a -- 従業員テーブル 別名a
