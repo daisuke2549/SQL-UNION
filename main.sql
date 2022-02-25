@@ -1,75 +1,35 @@
--- CREATE TABLE employees(
---   number int NOT NULL, 
---   last_name varchar(255), 
---   first_name varchar(255), 
---   PRIMARY KEY (number)
--- );
-
--- INSERT INTO employees VALUES('1','鈴木','太郎');
--- INSERT INTO employees VALUES('2','佐藤','一郎');
--- INSERT INTO employees VALUES('3','田中','大輔');
-
-
--- CREATE TABLE departments(
---  　 number int NOT NULL,
---   department_name varchar(255), 
---   PRIMARY KEY (department_name)
--- );
-
--- INSERT INTO departments VALUES('1','Webアプリグループ');
--- INSERT INTO departments VALUES('2','Web制作グループ');
-
--- SELECT
---   *
--- FROM
---   employees AS a -- 従業員テーブル 別名a
--- INNER JOIN
---   departments AS b --  部署テーブル 別名b
--- ON number = number;
-
-
-create table staff(id integer, name, deptid integer);
-
-insert into staff values(1, 'Suzuki', 1);
-insert into staff values(2, 'Endou', 3);
-insert into staff values(3, 'Sato', 1);
-insert into staff values(4, 'Yamada', 2);
-insert into staff values(5, 'Sasaki', 4);
-insert into staff values(6, 'Honda', 3);
-
-create table dept(id integer, name);
-
-insert into dept values(1, 'Sales');
-insert into dept values(2, 'Manager');
-insert into dept values(3, 'engineer');
-
--- select * from staff inner join dept on staff.deptid = dept.id;
-
-
-
-CREATE TABLE cats(
-  id int NOT NULL UNIQUE,
-  name varchar(255)
+CREATE TABLE employees (
+  no int NOT NULL, -- 
+  department_no char(5), 
+  last_name varchar(255), 
+  PRIMARY KEY (no),
+  check(department_no LIKE 'C%')
 );
+ 
+-- テストデータ
+INSERT INTO employees VALUES('1', 'C0001','佐々木');
+INSERT INTO employees VALUES('2', 'C0001','鈴木');
+INSERT INTO employees VALUES('3', 'C0002','伊藤');
+INSERT INTO employees VALUES('4', 'C0003','江藤');
 
-insert into cats values(1, 'Goro');
-insert into cats values(2, 'Jiro');
-insert into cats values(3, 'Daigoro');
-insert into cats values(4, 'test');
-
-
--- select * from cats;
-
-CREATE TABLE prefecture(
-  id int NOT NULL,
-  location varchar(255)
+CREATE TABLE sample1_departments (
+  department_no     char(5),    
+  department_name varchar(255),  
+  PRIMARY KEY (department_no),
+  check(department_name LIKE '%部')
 );
+ 
+-- テストデータ
+INSERT INTO sample1_departments VALUES('C0001', '営業部');
+INSERT INTO sample1_departments VALUES('C0002', '総務部');
+INSERT INTO sample1_departments VALUES('C0003', '法務');
 
-insert into prefecture values(1, 'Aomori');
-insert into prefecture values(2, 'Miyagi');
-insert into prefecture values(3, 'Shizuoka');
-insert into prefecture values(4, 'Yamanashi');
 
-select * from cats 
-INNER JOIN prefecture
-ON cats.id = prefecture.id;
+SELECT * FROM 
+  employees a -- 従業員テーブル 別名a
+INNER JOIN
+  sample1_departments b --  部署テーブル 別名b
+ON
+  a.department_no = b.department_no; -- a.部署番号 = b.部署番号
+
+  
