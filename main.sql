@@ -17,4 +17,26 @@ delete from items where id = 3;
 
 ALTER table items ADD keyword char;
   
-select * from items order by price DESC;
+select * from items where id = 10;
+
+CREATE table person(
+  id int,
+  name char,
+  address char,
+  tel char,
+  PRIMARY KEY (id)
+); 
+
+INSERT into person (id, name, address, tel) values (1,'佐々木','川崎市', 650);
+INSERT into person (id, name, address, tel) values (2,'鈴木','登米市', 4650);
+INSERT into person (id, name, address, tel) values (4,'伊藤','松本市', 400);
+INSERT into person (id, name, address, tel) values (5,'加藤','杉並区', 880);
+
+SELECT
+  *
+FROM
+  items a 
+INNER JOIN
+  person b 
+ON
+  a.id = b.id
